@@ -10,6 +10,8 @@ public class GameMan
     public static int CurentResult;
     public static int CurentHP;
 
+    public static bool GameMode;
+
     public static UnityAction HPChanger;
     public static UnityAction ResultChanger;
     public static UnityAction Death;

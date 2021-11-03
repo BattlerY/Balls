@@ -15,16 +15,18 @@ public class UiMan : MonoBehaviour
     private void Awake()
     {
         Stop.onClick.AddListener(() => {
-          
-            Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+
+            GameMan.GameMode = GameMan.GameMode == false ? true: false;
+            Time.timeScale = GameMan.GameMode == true ? 1 : 0;
             Menu.gameObject.SetActive(!Menu.gameObject.activeSelf);
             Last.text = GameMan.LastResult.ToString();
             Best.text = GameMan.BestResult.ToString();
             Curent.text = GameMan.CurentResult.ToString();
-            Canvas.sortingOrder = Canvas.sortingOrder == -1 ? 0 : -1;
+            Canvas.sortingOrder = GameMan.GameMode == false ? 0 : -1;
         });
 
-        Restart.onClick.AddListener(() => { 
+        Restart.onClick.AddListener(() => {
+            GameMan.GameMode = true;
             BallCreator.NewStart();
             Time.timeScale = 1;
             Menu.gameObject.SetActive(false);

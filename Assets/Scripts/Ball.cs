@@ -27,10 +27,11 @@ public class Ball : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (Time.timeScale == 0)
-            return;
-        GameMan.ChangePoints(GetPoints);
-        BallCreator.ToPool(this);
+        if (GameMan.GameMode)
+        {
+            GameMan.ChangePoints(GetPoints);
+            BallCreator.ToPool(this);
+        }
     }
 
 }

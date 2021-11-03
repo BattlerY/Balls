@@ -46,6 +46,7 @@ public class BallCreator : MonoBehaviour
         RightX = RT.rect.xMax + RightOffset;
         TopY = RT.rect.yMax + TopOffset;
         BallPool = new Stack<GameObject>();
+        GameMan.GameMode = true;
         NewStart();
     }
     private IEnumerator Create()
