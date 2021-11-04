@@ -10,16 +10,14 @@ public class Ball : MonoBehaviour
 
     private BallCreator BallCreator;
     private int Points, Damage;
-    private Vector4 Color;
     public int GetDamage => Damage;
     public int GetPoints => Points;
-    public Vector4 GetColor => Color;
+    public Vector4 GetColor => Img.color;
 
     public void Instantiate(Vector4 color, float velosity, Vector2 position, int points, int damage, BallCreator ballCreator)
     {
         transform.localPosition = position;
         Rb.velocity = new Vector2(0, -velosity);
-        Color = color;
         Img.color = color;
         Points = points;
         Damage = damage;
